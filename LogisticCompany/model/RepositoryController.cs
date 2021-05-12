@@ -1,0 +1,75 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Controls;
+
+namespace LogisticCompany.model
+{
+    public class RepositoryController :IRepController
+    {
+        static RepositoryController controller;
+        IRepository repository = new Repository();
+
+        public RepositoryController GetInstance()
+        {
+            if (controller == null)
+                controller = new RepositoryController();
+            return controller;
+        }
+        public RepositoryController() { }
+
+        public Employee GetEmployeeFromDB(string sorname, string phone)
+        {
+            return repository.GetDBEmployee(sorname, phone);
+        }
+        public ObservableCollection<ProductPosition> GetStorageProducts(Center center)
+        {
+            return repository.GetDBCenterProductsPosition(center);
+        }
+        public void UpdateProductInDataBase(Product product)
+        {
+            repository.UpdateProductInDataBase(product);
+        }
+        public ObservableCollection<Require> GetDBRequiersFrom(Center center)
+        {
+            return repository.GetDBRequiersFrom(center);
+        }
+        public ObservableCollection<Require> GetDBRequiersTo(Center center)
+        {
+            return repository.GetDBRequiersTo(center);
+        }
+        public ObservableCollection<ProductPosition> GetDBCenterProductsPosition(Center center)
+        {
+            return repository.GetDBCenterProductsPosition(center);
+        }
+
+        public void UpdateProductPositionInDB(ProductPosition product)
+        {
+            repository.UpdateProductPositionInDB(product);
+        }
+
+        public void DeleteProductPositionFromDB(ProductPosition product)
+        {
+            repository.DeleteProductPositionFromDB(product);
+        }
+
+        public void AddProductInDB(Product product)
+        {
+            repository.AddProductInDB(product);
+        }
+
+        public void AddProductPositionInDB(ProductPosition product)
+        {
+            repository.AddProductPositionInDB(product);
+        }
+
+        public ObservableCollection<Product> GetDBProducts()
+        {
+            return repository.GetDBProducts();
+        }
+    }
+
+}

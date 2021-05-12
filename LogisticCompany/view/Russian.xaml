@@ -1,0 +1,55 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:LogisticCompany"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+    <!--Меню-->
+    <v:String x:Key="b_all_products">Товары</v:String>
+    <v:String x:Key="b_witing_for_arrival">Заказы</v:String>
+    <v:String x:Key="b_witing_for_depature">К отправке</v:String>
+    <v:String x:Key="b_parking">Стоянка</v:String>
+    <v:String x:Key="b_trips">Рейсы</v:String>
+    <!--Форма авторизации-->
+    <v:String x:Key="t_Entry">Авторизация</v:String>
+    <v:String x:Key="t_Sorname">Фамилия</v:String>
+    <v:String x:Key="t_Phone">Номер телефона</v:String>
+    <v:String x:Key="t_password">Пароль</v:String>
+    <v:String x:Key="b_entry">Войти</v:String>
+    
+    <!--Товары-->
+
+    <v:String x:Key="th_prod_name">Название</v:String>
+    <v:String x:Key="th_prod_num">Количество</v:String>
+    <v:String x:Key="th_prod_toNum">На склад</v:String>
+    <v:String x:Key="th_prod_FromNum">Со склада</v:String>
+
+    <v:String x:Key="b_show_all">Мониторинг</v:String>
+    <v:String x:Key="b_delete_product">Удалить</v:String>
+    <v:String x:Key="b_otmena_product">Отменить</v:String>
+    <v:String x:Key="b_change_product">Изменить</v:String>
+    <v:String x:Key="b_add_product">Добавить</v:String>
+    <v:String x:Key="b_name_for_delete">Артикул для удаления</v:String>
+    
+    <!--Добавление-->
+    
+    <v:String x:Key="add_prod_form_articul">Артикул</v:String>
+    <v:String x:Key="add_prod_form_name">Название</v:String>
+    <v:String x:Key="add_prod_form_length">Длинна</v:String>
+    <v:String x:Key="add_prod_form_width">Ширина</v:String>
+    <v:String x:Key="add_prod_form_height">Высота</v:String>
+    <v:String x:Key="add_prod_form_weight">Масса</v:String>
+    <v:String x:Key="add_prod_form_cost">Цена</v:String>
+    <v:String x:Key="add_prod_form_unit">Измерение</v:String>
+    <v:String x:Key="add_prod_form_min_num">Мин. кол-во</v:String>
+    <v:String x:Key="add_prod_form_num">Количество</v:String>
+
+    <!--Рейсы-->
+    <v:String x:Key="trip_info_ID">Откуда</v:String>
+    <v:String x:Key="trip_info_from">Откуда</v:String>
+    <v:String x:Key="trip_info_to">Куда</v:String>
+    <v:String x:Key="trip_info_transport">Транспорт</v:String>
+    <v:String x:Key="trip_info_distance">Путь</v:String>
+    <v:String x:Key="trip_info_cost">Цена</v:String>
+    <v:String x:Key="trip_info_weight">Масса</v:String>
+    
+
+</ResourceDictionary>
