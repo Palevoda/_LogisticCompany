@@ -39,7 +39,7 @@ namespace LogisticCompany
                 Repository repository = new Repository();
                 DataBase context = repository.GetContext();
 
-                Center center = new Center("MinskOne", "Минск", 100000f);
+                Center center = new Center("Vitba", "Витебск", 120000f);
                 Employee employee = new Employee("Полевода", "Александр", "Иванович", "Сотрудник", "1234", "+375297797593", center);
                 IRepository IRep = new Repository();
 

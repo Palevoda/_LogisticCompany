@@ -16,32 +16,21 @@ using System.Windows.Shapes;
 
 namespace LogisticCompany.view
 {
-    /// <summary>
-    /// Логика взаимодействия для Trips.xaml
-    /// </summary>
-    public partial class Trips : UserControl
+    public partial class TripInfoBlock : UserControl
     {
-        static Trips State;
+        static TripInfoBlock State;
         Employee employee;
 
-        public static Trips GetInstance(Employee empl)
+        public static TripInfoBlock GetInstance(Employee employee)
         {
             if (State == null)
-                State = new Trips(empl);
-
-            State.TripContentArea.Content = TripsTable.GetInstance(empl);
+                State = new TripInfoBlock(employee);
             return State;
         }
-        public Trips(Employee empl)
+        public TripInfoBlock(Employee empl)
         {
             employee = empl;
             InitializeComponent();
-            TripContentArea.Content = TripsTable.GetInstance(employee);
-
-        }
-        private void TripsInfoButton_Click(object sender, RoutedEventArgs e)
-        {
-            TripContentArea.Content = TripInfoBlock.GetInstance(employee);
         }
     }
 }

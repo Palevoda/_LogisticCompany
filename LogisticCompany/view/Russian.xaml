@@ -43,13 +43,16 @@
     <v:String x:Key="add_prod_form_num">Количество</v:String>
 
     <!--Рейсы-->
-    <v:String x:Key="trip_info_ID">Откуда</v:String>
+    <v:String x:Key="trip_info_ID">ID</v:String>
     <v:String x:Key="trip_info_from">Откуда</v:String>
     <v:String x:Key="trip_info_to">Куда</v:String>
     <v:String x:Key="trip_info_transport">Транспорт</v:String>
     <v:String x:Key="trip_info_distance">Путь</v:String>
     <v:String x:Key="trip_info_cost">Цена</v:String>
     <v:String x:Key="trip_info_weight">Масса</v:String>
-    
+    <v:String x:Key="trip_info_status">Статус</v:String>
+    <v:String x:Key="trip_info_slots">Слоты</v:String>
+    <v:String x:Key="trip_info_price">Стоимость груза</v:String>
+    <v:String x:Key="trip_info_page_info">Информация о грузе</v:String>
 
 </ResourceDictionary>

@@ -90,6 +90,7 @@
     <Compile Include="model\RepositoryController.cs" />
     <Compile Include="ViewModel\AddProductCommand.cs" />
     <Compile Include="ViewModel\AuthorizationProcessor.cs" />
+    <Compile Include="ViewModel\CreateARequier.cs" />
     <Compile Include="ViewModel\DeleteProductPosition.cs" />
     <Compile Include="ViewModel\SetProductViewer.cs" />
     <Compile Include="ViewModel\ViewerObject.cs" />
@@ -118,6 +119,9 @@
     </Compile>
     <Compile Include="view\ToTripRequiers.xaml.cs">
       <DependentUpon>ToTripRequiers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\TripInfoBlock.xaml.cs">
+      <DependentUpon>TripInfoBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Trips.xaml.cs">
       <DependentUpon>Trips.xaml</DependentUpon>
@@ -170,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\ToTripRequiers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\TripInfoBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
