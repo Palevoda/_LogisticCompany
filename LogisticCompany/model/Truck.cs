@@ -26,7 +26,5 @@ namespace LogisticCompany.model
             volume_capcity = volume_cap;
             if_busy = busy;
         }
-
-
     }
 }

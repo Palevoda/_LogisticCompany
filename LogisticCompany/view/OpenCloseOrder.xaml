@@ -25,17 +25,17 @@
         </Grid.RowDefinitions>
 
         <ComboBox Grid.Column="0" Grid.ColumnSpan="3" Height="40px" VerticalAlignment="Bottom" Margin="10px" Name ="ProductsList" />
-        <TextBox Grid.Column="3" Height="40px" VerticalAlignment="Bottom" Margin="10px"></TextBox>
-        <Button  Grid.Column ="4" Height="40px" VerticalAlignment="Bottom" Margin="10px" Content="{DynamicResource b_add_product}"/>
-        <Button  Grid.Column ="5" Height="40px" VerticalAlignment="Bottom" Margin="10px" Content="{DynamicResource b_otmena_product}"/>
+        <TextBox Grid.Column="3" Height="40px" VerticalAlignment="Bottom" Margin="10px" Name="NumberArea"></TextBox>
+        <Button  Grid.Column ="4" Height="40px" VerticalAlignment="Bottom" Margin="10px" Content="{DynamicResource b_add_product}" Name="AddRequier" Click="AddRequier_Click"/>
+        <Button  Grid.Column ="5" Height="40px" VerticalAlignment="Bottom" Margin="10px" Content="{DynamicResource b_otmena_product}" Name="Otmena" Click="Otmena_Click"/>
 
-        <DataGrid Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="5" Margin="10px">
+        <DataGrid Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="5" Margin="10px" Name="RequiersTable" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="    ID" Binding="{Binding Path=name, Mode=TwoWay}" Width="*" IsReadOnly="True"   />
-                <DataGridTextColumn Header="{DynamicResource th_prod_name}" Binding="{Binding Path=name, Mode=TwoWay}" Width="*" IsReadOnly="True"   />
-                <DataGridTextColumn Header="{DynamicResource th_prod_num}" Binding="{Binding Path=current_number, Mode=TwoWay}" Width="*" IsReadOnly="True"  />
-                <DataGridTextColumn Header="{DynamicResource th_prod_FromNum}" Binding="{Binding Path=number_from, Mode=TwoWay}" Width="*" IsReadOnly="True"  />
-                <DataGridTextColumn Header="{DynamicResource th_prod_toNum}" Binding="{Binding Path=number_to, Mode=TwoWay}" Width="*" IsReadOnly="True"  />
+                <DataGridTextColumn Header="    ID" Binding="{Binding Path=Id, Mode=TwoWay}" Width="*" IsReadOnly="True"   />
+                <DataGridTextColumn Header="{DynamicResource th_prod_name}" Binding="{Binding Path=product.Name, Mode=TwoWay}" Width="*" IsReadOnly="True"   />
+                <DataGridTextColumn Header="{DynamicResource th_prod_num}" Binding="{Binding Path=Number, Mode=TwoWay}" Width="*" IsReadOnly="True"  />
+                <DataGridTextColumn Header="{DynamicResource th_prod_FromNum}" Binding="{Binding Path=FromCenter.CenterName, Mode=TwoWay}" Width="*" IsReadOnly="True"  />
+                <DataGridTextColumn Header="{DynamicResource th_prod_toNum}" Binding="{Binding Path=ToCenter.CenterName, Mode=TwoWay}" Width="*" IsReadOnly="True"  />
 
             </DataGrid.Columns>
         </DataGrid>

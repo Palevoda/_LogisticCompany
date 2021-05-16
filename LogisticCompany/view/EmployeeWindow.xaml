@@ -38,7 +38,7 @@
             <Button Content="{DynamicResource b_witing_for_depature}" Click="ShowRequiersToTrip_Click" Name ="ShowRequiersToTrip"/>
             <Button Content="{DynamicResource b_witing_for_arrival}" Name ="ShowOrdersToCenter" Click="ShowOrdersToCenter_Click" />
             <Button Content="{DynamicResource b_trips}" Name ="ShowTrips" Click="ShowTrips_Click"/>
-            <Button Content="{DynamicResource b_parking}" />
+            <Button Content="{DynamicResource b_parking}" Name ="Parking" Click="Parking_Click"/>
         </StackPanel>
         <Grid
             Grid.Row="0"

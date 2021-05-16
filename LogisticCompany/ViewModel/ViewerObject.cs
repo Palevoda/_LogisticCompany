@@ -18,7 +18,7 @@ namespace LogisticCompany.ViewModel
 
         public ViewerObject(ProductPosition prod)
         {
-            Id = prod.Id;
+            Id = prod.product.Id;
             name = prod.product.name;
             current_number = prod.NumberOfProduct;
             number_to = 0;

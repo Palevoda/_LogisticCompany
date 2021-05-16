@@ -69,5 +69,10 @@ namespace LogisticCompany.view
         {
             WorkingArea.Content = Trips.GetInstance(employee);
         }
+
+        private void Parking_Click(object sender, RoutedEventArgs e)
+        {
+            WorkingArea.Content = TruckParkingViewer.GetInstance(employee);
+        }
     }
 }

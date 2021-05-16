@@ -24,6 +24,7 @@ namespace LogisticCompany.view
             if (State == null)
                 State = new ProductsViewer(empl);
 
+            ProductsOnStorage.Clear();
             if (State.GetNewContext.ifExecute()) State.GetNewContext.Execute();
             return State;
         }
@@ -38,7 +39,8 @@ namespace LogisticCompany.view
 
             ProductsOnStorage = new ObservableCollection<ViewerObject>();
             employee = empl;
-            GetNewContext = new SetProductViewer(); 
+            GetNewContext = new SetProductViewer();
+           // if (GetNewContext.ifExecute()) GetNewContext.Execute();
             InitializeComponent();
             ProductsViewerTable.ItemsSource = ProductsOnStorage;
         }

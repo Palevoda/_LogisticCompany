@@ -10,7 +10,7 @@ namespace LogisticCompany.model
     public class DataBase : DbContext
     {
         public DataBase()  : base("EntityConnection")
-        {
+        {    
 
         }
         public DbSet<Center> Centers { get; set; }

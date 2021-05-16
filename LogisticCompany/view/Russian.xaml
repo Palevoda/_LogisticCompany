@@ -55,4 +55,14 @@
     <v:String x:Key="trip_info_price">Стоимость груза</v:String>
     <v:String x:Key="trip_info_page_info">Информация о грузе</v:String>
 
+    <!--Грузовики-->
+    <v:String x:Key="truck_registration">Номер</v:String>
+    <v:String x:Key="truck_consumption">Расход топлива (л/100км)</v:String>
+    <v:String x:Key="truck_slots">Вместимость слотов</v:String>
+    <v:String x:Key="truck_load_cap">Грузоподъемность</v:String>
+    <v:String x:Key="truck_volume">Объем кузова</v:String>
+    <v:String x:Key="truck_status">Стутус</v:String>
+    <v:String x:Key="truck_location">Местонахождение</v:String>
+
+
 </ResourceDictionary>

@@ -32,9 +32,12 @@ namespace LogisticCompany.model
             return db_context;
         }
         //Получить коллекции
-        public DbSet GetDBCenters()
+        public ObservableCollection<Center> GetDBCenters()
         {
-            return db_context.Centers;
+            ObservableCollection<Center> centers = new ObservableCollection<Center>();
+            foreach (Center center in db_context.Centers)
+                centers.Add(center);
+            return centers;
         }
         public void AddCenterInDB(Center center)
         {
@@ -98,9 +101,18 @@ namespace LogisticCompany.model
                 requiers.Add(requier);
             return requiers;
         }
+        public void DelateRequier(int id)
+        {
+            Require requier = db_context.Requires.Find(id);
+            db_context.Requires.Remove(requier);
+            db_context.SaveChanges();
+        }
         public void AddRequierInDB(Require require)
         {
-            db_context.Requires.Add(require);
+            Product product = GetDBProducts().Where(p => p.Id == require.product.Id).FirstOrDefault();
+            Center CenterTo = GetDBCenters().Where(c=>c.Id == require.ToCenter.Id).FirstOrDefault();
+            Center CenterFrom = GetDBCenters().Where(c => c.Id == require.FromCenter.Id).FirstOrDefault();
+            db_context.Requires.Add(new Require(require.Number, product, CenterTo, CenterFrom));
             db_context.SaveChanges();
         }
 
@@ -183,5 +195,35 @@ namespace LogisticCompany.model
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void AddTruck(Truck truck)
+        {
+            db_context.Trucks.Add(truck);
+            db_context.SaveChanges();
+        }
+
+        public ObservableCollection<Truck> GetTrucks(Center center)
+        {
+            try
+            {
+                ObservableCollection<Truck> trucks = new ObservableCollection<Truck>();
+                foreach (Truck truck in db_context.Trucks.Include(t => t.CurrentCenter).Where(tt => tt.CurrentCenter.Id == center.Id))
+                    trucks.Add(truck);
+                return trucks;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+        public void RemoveTruck(Truck truck)
+        {           
+            Truck tr = db_context.Trucks.Find(truck.Id);
+            db_context.Trucks.Remove(tr);
+            db_context.SaveChanges();
+        }
+        
     }
 }

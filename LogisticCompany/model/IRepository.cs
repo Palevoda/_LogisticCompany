@@ -11,8 +11,7 @@ namespace LogisticCompany.model
     public interface IRepository
     {
         DataBase GetContext();
-        //Получить коллекции
-        DbSet GetDBCenters();
+        //Получить коллекци
         void AddCenterInDB(Center center);
         //Сотрудники
         Employee GetDBEmployee(string sorname, string phone);
@@ -31,5 +30,11 @@ namespace LogisticCompany.model
         ObservableCollection<Require> GetDBRequiersTo(Center center);
         void UpdateProductPositionInDB(ProductPosition product);
         void DeleteProductPositionFromDB(ProductPosition product);
+        ObservableCollection<Center> GetDBCenters();
+        void AddRequierInDB(Require require);
+        void DelateRequier(int id);
+        ObservableCollection<Truck> GetTrucks(Center center);
+        void AddTruck(Truck truck);
+        void RemoveTruck(Truck truck);
     }
 }

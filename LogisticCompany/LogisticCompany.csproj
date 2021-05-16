@@ -91,7 +91,9 @@
     <Compile Include="ViewModel\AddProductCommand.cs" />
     <Compile Include="ViewModel\AuthorizationProcessor.cs" />
     <Compile Include="ViewModel\CreateARequier.cs" />
+    <Compile Include="ViewModel\DelateRequier.cs" />
     <Compile Include="ViewModel\DeleteProductPosition.cs" />
+    <Compile Include="ViewModel\GetRequiers.cs" />
     <Compile Include="ViewModel\SetProductViewer.cs" />
     <Compile Include="ViewModel\ViewerObject.cs" />
     <Compile Include="view\AddProduct.xaml.cs">
@@ -128,6 +130,9 @@
     </Compile>
     <Compile Include="view\TripsTable.xaml.cs">
       <DependentUpon>TripsTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\TruckParkingViewer.xaml.cs">
+      <DependentUpon>TruckParkingViewer.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -186,6 +191,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\TripsTable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\TruckParkingViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

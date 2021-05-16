@@ -70,6 +70,33 @@ namespace LogisticCompany.model
         {
             return repository.GetDBProducts();
         }
+
+        public ObservableCollection<Center> GetDBCenters()
+        {
+            return repository.GetDBCenters();
+        }
+
+        public void AddRequierInDB(Require require)
+        {
+            repository.AddRequierInDB(require);
+        }
+
+        public void DelateRequier(int id)
+        {
+            repository.DelateRequier(id);
+        }
+        public ObservableCollection<Truck> GetTrucks(Center center)
+        {
+            return repository.GetTrucks(center);
+        }
+        public void AddTruck(Truck truck)
+        {
+            repository.AddTruck(truck);
+        }
+        public void RemoveTruck(Truck truck)
+        {
+            repository.AddTruck(truck);
+        }
     }
 
 }

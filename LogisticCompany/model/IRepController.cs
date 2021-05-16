@@ -20,6 +20,12 @@ namespace LogisticCompany.model
         void AddProductPositionInDB(ProductPosition product);
         void AddProductInDB(Product product);
         ObservableCollection<Product> GetDBProducts();
+        ObservableCollection<Center> GetDBCenters();
+        void AddRequierInDB(Require require);
+        void DelateRequier(int id);
 
+        ObservableCollection<Truck> GetTrucks(Center center);
+        void AddTruck(Truck truck);
+        void RemoveTruck(Truck truck);
     }
 }

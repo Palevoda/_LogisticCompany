@@ -23,6 +23,8 @@ namespace LogisticCompany.model
             product = prod;
             ToCenter = to;
             FromCenter = from;
+            
+            
         }
 
         public static void GenerateRequiersInDB(Center CenterTo, Center CenterFrom, int col)
