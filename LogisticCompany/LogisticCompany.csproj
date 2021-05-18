@@ -93,8 +93,10 @@
     <Compile Include="ViewModel\CreateARequier.cs" />
     <Compile Include="ViewModel\DelateRequier.cs" />
     <Compile Include="ViewModel\DeleteProductPosition.cs" />
+    <Compile Include="ViewModel\GenerateBestTrip.cs" />
     <Compile Include="ViewModel\GetRequiers.cs" />
     <Compile Include="ViewModel\SetProductViewer.cs" />
+    <Compile Include="ViewModel\TaskAboutBestLoading.cs" />
     <Compile Include="ViewModel\ViewerObject.cs" />
     <Compile Include="view\AddProduct.xaml.cs">
       <DependentUpon>AddProduct.xaml</DependentUpon>

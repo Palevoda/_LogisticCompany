@@ -38,21 +38,28 @@ namespace LogisticCompany
                 Repository repository = new Repository();
                 DataBase context = repository.GetContext();
 
-                // Center center = new Center("Vitba", "Витебск", 120000f);
-                Center center = repository.GetDBCenters().Where(p => p.CenterName.Equals("MinskOne")).FirstOrDefault();
-                Employee employee = new Employee("Полевода", "Александр", "Иванович", "Сотрудник", "1234", "+375297797593", center);
+                //Center center = new Center("MinskOne", "Минск", 95000f);
+                //Center center1 = new Center("Vitba", "Витебск", 120000f);
+                //Center center2 = new Center("GrodnoGodno", "Гродно", 110000f);
+                //Center center3 = new Center("Beresta", "Брест", 110000f);
+              //  Center center = repository.GetDBCenters().Where(p => p.CenterName.Equals("MinskOne")).FirstOrDefault();
+              //  Employee employee = new Employee("Полевода2", "Александр", "Иванович", "Сотрудник", "1234", "+375297797593", center);
+                
+                Employee employee = repository.GetDBEmployee("Полевода", "+375297797593");
                 IRepository IRep = new Repository();
+               // IRep.AddEmployeeInDB(employee);
 
+//                MessageBox.Show(employee.center.CenterName);
                 //ObservableCollection<Center> centers = IRep.GetDBCenters();
                 //ObservableCollection<Product> products = IRep.GetDBProducts();
                 //Random rand = new Random();
                 //foreach (Center cent in centers)
                 //{
                 //    if (cent.Id != 1)
-                //    foreach (Product prod in products)
-                //    {
-                //        IRep.AddProductPositionInDB(new ProductPosition(prod, cent, rand.Next(400))); ;
-                //    }
+                //        foreach (Product prod in products)
+                //        {
+                //            IRep.AddProductPositionInDB(new ProductPosition(prod, cent, rand.Next(400))); ;
+                //        }
                 //}
 
                 //Truck truck = new Truck("AB1470-7", 40, 20, 20000, 90, false);

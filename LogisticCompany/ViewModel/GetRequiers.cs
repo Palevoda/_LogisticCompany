@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace LogisticCompany.ViewModel
 {
@@ -22,12 +23,16 @@ namespace LogisticCompany.ViewModel
         public void Execute()
         {
             //OpenCloseOrder.GetInstance(employee).Requiers.Clear();
+            
             OpenCloseOrder.GetInstance(employee).Requiers.Add(controller.GetDBRequiersTo(employee.center)[controller.GetDBRequiersTo(employee.center).Count-1]);
         }
 
         public bool ifExecute()
         {
-            return true;
+            if (controller.GetDBRequiersTo(employee.center).Count > 0)
+                return true;
+            else
+                return false;
         }
     }
 }

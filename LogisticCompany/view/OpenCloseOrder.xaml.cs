@@ -10,16 +10,19 @@ namespace LogisticCompany.view
 {
     public partial class OpenCloseOrder : UserControl
     {
+        static IRepController controller = new RepositoryController();
         static OpenCloseOrder State;
         ObservableCollection<Product> products;
         Employee employee;
         ICommand command;
+
         public ObservableCollection<Require> Requiers;
 
         public static OpenCloseOrder GetInstance(Employee empl)
         {
             if (State == null)
                 State = new  OpenCloseOrder(empl);
+
             return State;
         }
         public OpenCloseOrder(Employee empl)
@@ -54,6 +57,7 @@ namespace LogisticCompany.view
             command = new DelateRequier(Id);
             if (command.ifExecute()) command.Execute();
             Requiers.Remove(Requiers.Where(req=>req.Id == Id).FirstOrDefault());
+
         }
     }
 }

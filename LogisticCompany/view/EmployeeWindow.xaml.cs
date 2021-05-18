@@ -16,10 +16,6 @@ using LogisticCompany.model;
 
 namespace LogisticCompany.view
 {
-    /// <summary>
-    /// Логика взаимодействия для EmployeeWindow.xaml
-    /// </summary>
-    
     public partial class EmployeeWindow : UserControl
     {
         static EmployeeWindow State;

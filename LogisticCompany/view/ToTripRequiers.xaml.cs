@@ -23,12 +23,15 @@ namespace LogisticCompany.view
     public partial class ToTripRequiers : UserControl
     {
         static ToTripRequiers State;
+        static IRepController controller = new RepositoryController();
         ObservableCollection<Require> Requiers;
         Employee employee;
+
         public static ToTripRequiers GetInstance(Employee employee)
         {
             if (State == null)
                 State = new ToTripRequiers(employee);
+
             return State;
         }
         public ToTripRequiers(Employee employee)

@@ -36,5 +36,13 @@ namespace LogisticCompany.model
         ObservableCollection<Truck> GetTrucks(Center center);
         void AddTruck(Truck truck);
         void RemoveTruck(Truck truck);
+        void AddTripInDB(Trip trip);
+        ObservableCollection<Trip> GetTrips(Center center);
+        void AddTruckSlotInDB(TruckSlot slot);
+        Trip GetTripForSlots(Center center);
+        ObservableCollection<TruckSlot> GetSlotsForTrip(Trip trip);
+        void UpdateTruck(Truck trck);
+        void UpdateRequier(Require req);
+        void UpdateTrip(Trip trp);
     }
 }

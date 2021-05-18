@@ -97,6 +97,39 @@ namespace LogisticCompany.model
         {
             repository.AddTruck(truck);
         }
+        public void AddTripInDB(Trip trip)
+        {
+            repository.AddTripInDB(trip);
+        }
+        public ObservableCollection<Trip> GetTrips(Center center)
+        {
+            return repository.GetTrips(center);
+        }
+        public void AddTruckSlotInDB(TruckSlot slot)
+        {
+            repository.AddTruckSlotInDB(slot);
+        }
+        public Trip GetTripForSlots(Center center)
+        {
+            return repository.GetTripForSlots(center);
+        }
+        public ObservableCollection<TruckSlot> GetSlotsForTrip(Trip trip)
+        {
+            return repository.GetSlotsForTrip(trip);
+        }
+        public void UpdateTruck(Truck trck)
+        {
+            repository.UpdateTruck(trck);
+        }
+        public void UpdateRequier(Require req)
+        {
+            repository.UpdateRequier(req);
+        }
+
+        public void UpdateTrip(Trip trp)
+        {
+            repository.UpdateTrip(trp);
+        }
     }
 
 }

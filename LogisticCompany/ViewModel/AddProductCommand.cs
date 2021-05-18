@@ -40,20 +40,27 @@ namespace LogisticCompany.ViewModel
 
         public void Execute()
         {
-            Product product = new Product(
-                Name,
-                (float)Convert.ToDouble(Length),
-                (float)Convert.ToDouble(Width),
-                (float)Convert.ToDouble(Height),
-                (float)Convert.ToDouble(Cost),
-                (float)Convert.ToDouble(Weight),
-                Convert.ToInt32(Min_num),
-                Unit
-                ); ;
-            ProductPosition productPosition = new ProductPosition(product, employee.center, Convert.ToInt32(Number));
-            controller.AddProductPositionInDB(productPosition);
-            MessageBox.Show("Товар добавлен");
-            //controller.AddProductInDB(product);
+            try
+            {
+                Product product = new Product(
+                    Name,
+                    (float)Convert.ToDouble(Length),
+                    (float)Convert.ToDouble(Width),
+                    (float)Convert.ToDouble(Height),
+                    (float)Convert.ToDouble(Cost),
+                    (float)Convert.ToDouble(Weight),
+                    Convert.ToInt32(Min_num),
+                    Unit
+                    ); ;
+                ProductPosition productPosition = new ProductPosition(product, employee.center, Convert.ToInt32(Number));
+                controller.AddProductPositionInDB(productPosition);
+                MessageBox.Show("Товар добавлен");
+                //controller.AddProductInDB(product);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Неверный формат введенных данных. Ячейки могут содержать только целочисленные, положительные значения. Все измерения в единицах СИ");
+            }
 
         }
 

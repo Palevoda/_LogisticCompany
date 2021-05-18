@@ -23,11 +23,11 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBox Grid.Column ="0" Height="40px" VerticalAlignment="Bottom" Margin="10px"/>
+        <TextBox Grid.Column ="0" Height="40px" VerticalAlignment="Bottom" Margin="10px" Name="IdOfTripForAction"/>
         <Button  Grid.Column ="1" Height="40px" VerticalAlignment="Bottom" Margin="10px" Content="Принять"/>
         <Button  Grid.Column ="2" Height="40px" VerticalAlignment="Bottom" Margin="10px"  Content="Отменить"/>
         <Button  Grid.Column ="3" Height="40px" VerticalAlignment="Bottom" Margin="10px" Content="Инфо" Name ="TripsInfoButton" Click="TripsInfoButton_Click"/>
-        <Button  Grid.Column ="4" Grid.ColumnSpan="2" Height="40px" VerticalAlignment="Bottom" Margin="10px" Content="Сформировать"/>
+        <Button  Grid.Column ="4" Grid.ColumnSpan="2" Height="40px" VerticalAlignment="Bottom" Margin="10px" Content="Сформировать" Name = "MakeBetterTrip" Click="MakeBetterTrip_Click" />
 
 
         <UserControl Name ="TripContentArea" Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="1" Grid.RowSpan="5"/>

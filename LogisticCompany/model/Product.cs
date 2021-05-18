@@ -1,20 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 
 namespace LogisticCompany.model
 {
-    public 
-        class Product :INotifyPropertyChanged
+    public class Product :INotifyPropertyChanged
     {
         public int Id { get; set;}
-        
-        
+                
         public string name;
         public string Name
         {
@@ -75,14 +68,13 @@ namespace LogisticCompany.model
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
+        { 
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
                 IRepController controller = new RepositoryController();
                 controller.UpdateProductInDataBase(this);
             }
-
         }
 
         public Product(string name, float len, float wid, float heigh, float cst, float weigh, int nom_numb, string unit_of_meas) 
@@ -108,7 +100,6 @@ namespace LogisticCompany.model
             mominal_number = New.mominal_number;
             unit_of_measurment = New.unit_of_measurment;
         }
-
         public static Product GenerateRandomProduct()
         {
             Random random = new Random();

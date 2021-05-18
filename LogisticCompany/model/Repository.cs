@@ -57,6 +57,8 @@ namespace LogisticCompany.model
         }
         public void AddEmployeeInDB(Employee employee)
         {
+            Center center = GetDBCenters().Where(c => c.CenterName.Equals(employee.center.CenterName)).FirstOrDefault();
+            employee.center = center;
             db_context.Employees.Add(employee);
             db_context.SaveChanges();
         }
@@ -103,8 +105,22 @@ namespace LogisticCompany.model
         }
         public void DelateRequier(int id)
         {
-            Require requier = db_context.Requires.Find(id);
-            db_context.Requires.Remove(requier);
+            try
+            {
+                Require requier = db_context.Requires.Find(id);
+                db_context.Requires.Remove(requier);
+                db_context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        public void UpdateRequier(Require req)
+        {
+            Require require = db_context.Requires.Find(req.Id);
+            require.Number = req.Number;
             db_context.SaveChanges();
         }
         public void AddRequierInDB(Require require)
@@ -155,7 +171,10 @@ namespace LogisticCompany.model
         }
         public void AddProductPositionInDB(ProductPosition product)
         {
-            try { 
+            try 
+            {
+            Center center = GetDBCenters().Where(c => c.CenterName.Equals(product.productCenter.CenterName)).FirstOrDefault();
+            product.productCenter = center;
             db_context.ProductPositions.Add(product);
             db_context.SaveChanges();
             }
@@ -224,6 +243,85 @@ namespace LogisticCompany.model
             db_context.Trucks.Remove(tr);
             db_context.SaveChanges();
         }
-        
+
+        public void UpdateTruck(Truck trck)
+        {
+            Truck truck = db_context.Trucks.Find(trck.Id);
+            truck.fuel_consumption = trck.fuel_consumption;
+            truck.if_busy = trck.if_busy;
+            Center center = db_context.Centers.Find(trck.CurrentCenter.Id);
+            truck.CurrentCenter = center;
+            db_context.SaveChanges();
+        }
+
+        public void AddTripInDB(Trip trip)
+        {
+            Center to = db_context.Centers.Where(c => c.Id == trip.To.Id).FirstOrDefault();
+            Center from = db_context.Centers.Where(c => c.Id == trip.From.Id).FirstOrDefault();
+
+            trip.To = to;
+            trip.From = from;
+
+            db_context.Trips.Add(trip);
+            db_context.SaveChanges();
+        }
+
+        public void UpdateTrip(Trip trp)
+        {
+            Trip trip = db_context.Trips.Find(trp.Id);
+            trip.Status = trp.Status;
+            db_context.SaveChanges();
+        }
+
+        public ObservableCollection<Trip> GetTrips(Center center)
+        {
+            try
+            {
+                ObservableCollection<Trip> trips = new ObservableCollection<Trip>();
+                foreach (Trip trip in db_context.Trips.Include(t => t.To).Include(tt => tt.From).Include(ttt => ttt.truck).Where(c => c.To.Id == center.Id || c.From.Id == center.Id))
+                {
+                    trips.Add(trip);
+                }
+                return trips;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+        public void AddTruckSlotInDB(TruckSlot slot)
+        {
+            Center to = db_context.Centers.Where(c => c.CenterName.Equals(slot.ToCenter.CenterName)).FirstOrDefault();
+            Center from = db_context.Centers.Where(c=>c.CenterName.Equals(slot.FromCenter.CenterName)).FirstOrDefault();
+            Product prod = db_context.Products.Where(p => p.Name.Equals(slot.product.Name)).FirstOrDefault();
+            Trip trip = db_context.Trips.Where(t => t.Id == slot.Trip.Id).Include(t => t.To).Include(tt => tt.From).Include(ttt => ttt.truck).FirstOrDefault();
+
+
+            slot.product = prod;
+            slot.FromCenter = from;
+            slot.ToCenter = to;
+            slot.Trip = trip;
+
+            db_context.TruckSlots.Add(slot);
+            db_context.SaveChanges();
+        }
+
+        public Trip GetTripForSlots(Center center)
+        {
+            Trip trip = db_context.Trips.Where(t => t.From.Id == center.Id && t.Status.Equals("ожидает отправки")).FirstOrDefault();
+            return trip;
+        }
+
+        public ObservableCollection<TruckSlot> GetSlotsForTrip(Trip trip)
+        {
+            ObservableCollection<TruckSlot> slots = new ObservableCollection<TruckSlot>();
+            foreach (TruckSlot slot in db_context.TruckSlots.Where(t => t.Trip.Id == trip.Id).Include(tt=>tt.FromCenter).Include(ttt=>ttt.ToCenter).Include(t4=>t4.product).Include(t5=>t5.Trip))
+            {
+                slots.Add(slot);
+            }
+            return slots;
+        }
     }
 }

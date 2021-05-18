@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:LogisticCompany.view"
              mc:Ignorable="d"  Background="DarkGray"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Name ="TripViewer">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -37,17 +37,28 @@
         <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Margin="5px" Text="{DynamicResource trip_info_slots}"></TextBlock>
         <TextBlock Grid.Row="5" Grid.ColumnSpan="2" Margin="5px" Text="{DynamicResource trip_info_price}"></TextBlock>
         <TextBlock Grid.Row="6" Grid.ColumnSpan="2" Margin="5px" Text="{DynamicResource trip_info_weight}"></TextBlock>
-
-        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{}"></TextBlock>
-        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{}"></TextBlock>
-        <TextBlock Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{}"></TextBlock>
-        <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{}"></TextBlock>
-        <TextBlock Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{}"></TextBlock>
-        <TextBlock Grid.Row="6" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{}"></TextBlock>
+        <TextBlock Grid.Row="7" Grid.ColumnSpan="2" Margin="5px" Text="{DynamicResource trip_info_actions}"></TextBlock>
 
 
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{Binding Path=trip.Status}"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{Binding Path=trip.From.CenterName}"></TextBlock>
+        <TextBlock Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{Binding Path=trip.To.CenterName}"></TextBlock>
+        <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{Binding Path=NumberOfSlots}"></TextBlock>
+        <TextBlock Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{Binding Path=cost}"></TextBlock>
+        <TextBlock Grid.Row="6" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{Binding Path= weight}"></TextBlock>
+        <ComboBox Grid.Row="7" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{}" Name="TripActions">
+            
+        </ComboBox>
+
+        <Button Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2" Margin="10" Content="{DynamicResource trip_info_do_action}" Name="DoAction" Click="DoAction_Click"/>
 
 
-        <DataGrid Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="7" Margin="5px"/>
+        <DataGrid Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="7" Margin="5px" Name="SlotsInfo" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="{DynamicResource trip_info_product_name}" Binding="{Binding Path=product.Name, Mode=TwoWay}"/>
+                <DataGridTextColumn Width="*" Header="{DynamicResource trip_info_product_number}" Binding="{Binding Path=total_umber, Mode=TwoWay}"/>
+                <DataGridTextColumn Width="*" Header="{DynamicResource trip_info_slot_cost}" Binding="{Binding Path=total_cost, Mode=TwoWay}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>
