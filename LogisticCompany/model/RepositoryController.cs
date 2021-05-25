@@ -95,7 +95,7 @@ namespace LogisticCompany.model
         }
         public void RemoveTruck(Truck truck)
         {
-            repository.AddTruck(truck);
+            repository.RemoveTruck(truck);
         }
         public void AddTripInDB(Trip trip)
         {
@@ -130,6 +130,47 @@ namespace LogisticCompany.model
         {
             repository.UpdateTrip(trp);
         }
+        public ObservableCollection<ProductPosition> GetAllProductsPosition()
+        {
+            return repository.GetAllProductsPosition();
+        }
+        public ObservableCollection<Employee> GetDBEmployees()
+        {
+            return repository.GetDBEmployees();
+        }
+        public void AddEmployeeInDB(Employee employee)
+        {
+            repository.AddEmployeeInDB(employee);
+        }
+        public ObservableCollection<Truck> GetTrucks()
+        {
+            return repository.GetTrucks();
+        }
+        public ObservableCollection<Require> GetDBRequiers()
+        {
+            return repository.GetDBRequiers();
+        }
+        public ObservableCollection<Trip> GetTrips()
+        {
+            return repository.GetTrips();
+        }
+        public void DelateTripsSlots(int trip_id)
+        {
+            repository.DelateTripsSlots(trip_id);
+        }
+        public void DelateTrip(int trip_id)
+        {
+            repository.DelateTrip(trip_id);
+        }
+        public void DeleteEmployee(int Id)
+        {
+            repository.DeleteEmployee(Id);
+        }
+        public Employee FindEmployeeById(int Id)
+        {
+            return repository.FindEmployeeById(Id);
+        }
     }
+
 
 }

@@ -4,10 +4,10 @@ using System.Runtime.CompilerServices;
 
 namespace LogisticCompany.model
 {
-    public class Product :INotifyPropertyChanged
+    public class Product : INotifyPropertyChanged
     {
-        public int Id { get; set;}
-                
+        public int Id { get; set; }
+
         public string name;
         public string Name
         {
@@ -57,7 +57,7 @@ namespace LogisticCompany.model
         }
 
         public string unit_of_measurment;
-        
+
         public string Unit_of_measurment
         {
             get { return unit_of_measurment; }
@@ -68,7 +68,7 @@ namespace LogisticCompany.model
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
-        { 
+        {
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
@@ -77,7 +77,7 @@ namespace LogisticCompany.model
             }
         }
 
-        public Product(string name, float len, float wid, float heigh, float cst, float weigh, int nom_numb, string unit_of_meas) 
+        public Product(string name, float len, float wid, float heigh, float cst, float weigh, int nom_numb, string unit_of_meas)
         {
             this.name = name;
             length = len;

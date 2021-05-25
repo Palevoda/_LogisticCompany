@@ -68,6 +68,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -93,6 +94,7 @@
     <Compile Include="ViewModel\CreateARequier.cs" />
     <Compile Include="ViewModel\DelateRequier.cs" />
     <Compile Include="ViewModel\DeleteProductPosition.cs" />
+    <Compile Include="ViewModel\ExitCommand.cs" />
     <Compile Include="ViewModel\GenerateBestTrip.cs" />
     <Compile Include="ViewModel\GetRequiers.cs" />
     <Compile Include="ViewModel\SetProductViewer.cs" />
@@ -100,6 +102,48 @@
     <Compile Include="ViewModel\ViewerObject.cs" />
     <Compile Include="view\AddProduct.xaml.cs">
       <DependentUpon>AddProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\AdminAddEmployee.xaml.cs">
+      <DependentUpon>AdminAddEmployee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\AdminAddTransport.xaml.cs">
+      <DependentUpon>AdminAddTransport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\AdminEmployees.xaml.cs">
+      <DependentUpon>AdminEmployees.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\AdminEmployeeTable.xaml.cs">
+      <DependentUpon>AdminEmployeeTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\AdminGenerateRequier.xaml.cs">
+      <DependentUpon>AdminGenerateRequier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\AdminGenerateTrip.xaml.cs">
+      <DependentUpon>AdminGenerateTrip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\AdminProductsViewer.xaml.cs">
+      <DependentUpon>AdminProductsViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\AdminRequiers.xaml.cs">
+      <DependentUpon>AdminRequiers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\AdminRequiersTable.xaml.cs">
+      <DependentUpon>AdminRequiersTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\AdminTransport.xaml.cs">
+      <DependentUpon>AdminTransport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\AdminTransportTable.xaml.cs">
+      <DependentUpon>AdminTransportTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\AdminTripsTable.xaml.cs">
+      <DependentUpon>AdminTripsTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\AdminTripsWindow.xaml.cs">
+      <DependentUpon>AdminTripsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\AdminWindow.xaml.cs">
+      <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Authorization.xaml.cs">
       <DependentUpon>Authorization.xaml</DependentUpon>
@@ -149,6 +193,62 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="view\AddProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\AdminAddEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\AdminAddTransport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\AdminEmployees.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\AdminEmployeeTable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\AdminGenerateRequier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\AdminGenerateTrip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\AdminProductsViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\AdminRequiers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\AdminRequiersTable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\AdminTransport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\AdminTransportTable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\AdminTripsTable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\AdminTripsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\AdminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -235,6 +335,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="UML.cd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

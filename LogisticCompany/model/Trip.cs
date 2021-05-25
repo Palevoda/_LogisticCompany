@@ -41,8 +41,7 @@ namespace LogisticCompany.model
         {
             if (PropertyChanged != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-                IRepController controller = new RepositoryController();
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));                
                 controller.UpdateTrip(this);
             }
         }
@@ -55,6 +54,18 @@ namespace LogisticCompany.model
                 controller.AddTruckSlotInDB(slot);
             }
         }
-        
+
+        public void CloseTrip()
+        {
+            Status = "Завершён";
+            controller.UpdateTrip(this);
+        }
+
+        public void SendTrip()
+        {
+            Status = "В пути";
+            controller.UpdateTrip(this);
+        }
+
     }
 }

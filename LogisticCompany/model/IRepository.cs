@@ -16,7 +16,7 @@ namespace LogisticCompany.model
         //Сотрудники
         Employee GetDBEmployee(string sorname, string phone);
         void AddEmployeeInDB(Employee employee);
-        DbSet GetDBEmployees();
+        ObservableCollection<Employee> GetDBEmployees();
         ObservableCollection<Product> GetDBProducts();
         void AddProductInDB(Product product);
         void UpdateProductInDataBase(Product product);
@@ -44,5 +44,12 @@ namespace LogisticCompany.model
         void UpdateTruck(Truck trck);
         void UpdateRequier(Require req);
         void UpdateTrip(Trip trp);
+        ObservableCollection<ProductPosition> GetAllProductsPosition();
+        ObservableCollection<Truck> GetTrucks();
+        ObservableCollection<Trip> GetTrips();
+        void DelateTripsSlots(int trip_id);
+        void DelateTrip(int trip_id);
+        void DeleteEmployee(int Id);
+        Employee FindEmployeeById(int Id);
     }
 }

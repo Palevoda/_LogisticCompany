@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:LogisticCompany.view"
              mc:Ignorable="d" Background="DarkGray"
              d:DesignHeight="450" d:DesignWidth="800">
@@ -25,17 +26,17 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" TextAlignment="Center" Text="{DynamicResource add_prod_form_name}" Name ="AddProductNameArea" />
+        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" TextAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource add_prod_form_name}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name ="AddProductNameArea" />
 
-        <TextBox Grid.Row="2" Grid.Column="1"  VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" Text="{DynamicResource add_prod_form_length}" Name ="AddProductLengthArea"/>
-        <TextBox Grid.Row="2" Grid.Column="2"  VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" Text="{DynamicResource add_prod_form_width}" Name ="AddProductWidthArea"/>
-        <TextBox Grid.Row="2" Grid.Column="3"  VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" Text="{DynamicResource add_prod_form_height}" Name ="AddProductHeightArea"/>
-        <TextBox Grid.Row="2" Grid.Column="4"  VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" Text="{DynamicResource add_prod_form_weight}" Name ="AddProductWeightArea"/>
+        <TextBox Grid.Row="2" Grid.Column="1"  VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource add_prod_form_length}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name ="AddProductLengthArea"/>
+        <TextBox Grid.Row="2" Grid.Column="2"  VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource add_prod_form_width}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name ="AddProductWidthArea"/>
+        <TextBox Grid.Row="2" Grid.Column="3"  VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource add_prod_form_height}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name ="AddProductHeightArea"/>
+        <TextBox Grid.Row="2" Grid.Column="4"  VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource add_prod_form_weight}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name ="AddProductWeightArea"/>
 
-        <TextBox Grid.Row="3" Grid.Column="1"  VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" Text="{DynamicResource add_prod_form_unit}" Name="AddProductUnitArea"/>
-        <TextBox Grid.Row="3" Grid.Column="2"  VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" Text="{DynamicResource add_prod_form_min_num}" Name="AddProductMinNumArea"/>
-        <TextBox Grid.Row="3" Grid.Column="3"  VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" Text="{DynamicResource add_prod_form_num}" Name ="AddProductNumArea"/>
-        <TextBox Grid.Row="3" Grid.Column="4"  VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" Text="{DynamicResource add_prod_form_cost}" Name ="AddProductCostArea"/>
+        <TextBox Grid.Row="3" Grid.Column="1"  VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource add_prod_form_unit}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="AddProductUnitArea"/>
+        <TextBox Grid.Row="3" Grid.Column="2"  VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource add_prod_form_min_num}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="AddProductMinNumArea"/>
+        <TextBox Grid.Row="3" Grid.Column="3"  VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource add_prod_form_num}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name ="AddProductNumArea"/>
+        <TextBox Grid.Row="3" Grid.Column="4"  VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource add_prod_form_cost}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name ="AddProductCostArea"/>
         <Button Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" Content="{DynamicResource b_add_product}" Name ="AddProductInDataBase" Click="AddProductInDataBase_Click" />
     </Grid>
 

@@ -10,6 +10,7 @@ namespace LogisticCompany.model
 {
     public class Truck : INotifyPropertyChanged
     {
+        IRepController controller = new RepositoryController();
         public string Id { get; set; }
         public float fuel_consumption { get; set; }
         public int slots { get; set; }
@@ -28,7 +29,7 @@ namespace LogisticCompany.model
             get { return currentCenter; }
             set {
                 currentCenter = value; 
-                OnPropertyChanged("CurrentCenter"); 
+                OnPropertyChanged("currentCenter"); 
             }
         }
 
@@ -45,15 +46,44 @@ namespace LogisticCompany.model
             if_busy = busy;
         }
 
+        public Truck(string reg, float cnsmpshn, int slots, int load_cap, int volume_cap, bool busy, Center center)
+        {
+            Id = reg;
+            fuel_consumption = cnsmpshn;
+            this.slots = slots;
+            load_capacity = load_cap;
+            volume_capcity = volume_cap;
+            if_busy = busy;
+            CurrentCenter = center;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
-                IRepController controller = new RepositoryController();
+                
                 controller.UpdateTruck(this);
             }
+        }
+        public void SetBusy()
+        {
+            if_busy = true;
+            controller.UpdateTruck(this);
+        }
+        public void SendInTrip()
+        {
+            CurrentCenter = null;
+            SetBusy();
+            controller.UpdateTruck(this);
+        }
+
+        public void closeTrip(Center center)
+        {
+            CurrentCenter = center;
+            if_busy = false;
+            controller.UpdateTruck(this);
         }
     }
 }

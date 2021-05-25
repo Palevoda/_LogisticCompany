@@ -42,14 +42,14 @@ namespace LogisticCompany
                 //Center center1 = new Center("Vitba", "Витебск", 120000f);
                 //Center center2 = new Center("GrodnoGodno", "Гродно", 110000f);
                 //Center center3 = new Center("Beresta", "Брест", 110000f);
-              //  Center center = repository.GetDBCenters().Where(p => p.CenterName.Equals("MinskOne")).FirstOrDefault();
-              //  Employee employee = new Employee("Полевода2", "Александр", "Иванович", "Сотрудник", "1234", "+375297797593", center);
-                
-                Employee employee = repository.GetDBEmployee("Полевода", "+375297797593");
-                IRepository IRep = new Repository();
-               // IRep.AddEmployeeInDB(employee);
+                //  Center center = repository.GetDBCenters().Where(p => p.CenterName.Equals("MinskOne")).FirstOrDefault();
+                //  Employee employee = new Employee("Полевода2", "Александр", "Иванович", "Сотрудник", "1234", "+375297797593", center);
 
-//                MessageBox.Show(employee.center.CenterName);
+                Employee employee = repository.GetDBEmployee("Полевода2", "+375297797593");
+                IRepository IRep = new Repository();
+                // IRep.AddEmployeeInDB(employee);
+
+                //                MessageBox.Show(employee.center.CenterName);
                 //ObservableCollection<Center> centers = IRep.GetDBCenters();
                 //ObservableCollection<Product> products = IRep.GetDBProducts();
                 //Random rand = new Random();
@@ -72,12 +72,12 @@ namespace LogisticCompany
                 // var hash = md5.ComputeHash(Encoding.UTF8.GetBytes(input));
                 // IRep.AddCenterInDB(center);
                 // IRep.AddEmployeeInDB(employee);
-
+                
                 //Установка контентом авторизационное окно
-                // WINDOW.Content = new LogisticCompany.view.Authorization().Content;
+                WINDOW.Content = new LogisticCompany.view.Authorization().Content;
                 //Установка контентом окна просмотров
-                LogisticCompany.MainWindow.GetInstance().Content = LogisticCompany.view.EmployeeWindow.GetInstance(employee).Content;
-                    
+                //  LogisticCompany.MainWindow.GetInstance().Content = LogisticCompany.view.AdminWindow.GetInstance(employee).Content;
+                        // LogisticCompany.MainWindow.GetInstance().Content = LogisticCompany.view.EmployeeWindow.GetInstance(employee).Content;
                 //   WorkingArea.Content = 
                 //     MessageBox.Show(Convert.ToString(context.Trucks.Count()));
             }

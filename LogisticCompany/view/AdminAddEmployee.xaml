@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="LogisticCompany.view.AdminAddEmployee"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LogisticCompany.view"
+             mc:Ignorable="d" Background="#303030" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             
+             >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MinHeight="40px" FontSize="12pt" TextAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource admin_employees_employee_sorname}" Foreground="White"  Name ="AddEmployeeSorname"  />
+
+        <TextBox materialDesign:HintAssist.Hint="{DynamicResource admin_employees_employee_name}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" Foreground="White" Name ="AddEmployeeName"/>
+        <TextBox materialDesign:HintAssist.Hint="{DynamicResource admin_employees_employee_second}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"  VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" Foreground="White" Name ="AddEmployeeSecondName"/>
+        <TextBox materialDesign:HintAssist.Hint="{DynamicResource admin_employees_employee_phone}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" TextAlignment="Center" Foreground="White"  Name ="AddEmployeePhone"/>
+        <ComboBox materialDesign:HintAssist.Hint="{DynamicResource admin_employees_employee_center}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2"  VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px" Foreground="White"  Name ="AddEmployeeCenter"/>
+
+        <ComboBox materialDesign:HintAssist.Hint="{DynamicResource admin_employees_employee_role}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px"  Foreground="White" Name="AddEmployeeRole"/>
+
+        <PasswordBox materialDesign:HintAssist.Hint="{DynamicResource admin_employees_employee_password}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" VerticalAlignment="Center" MinHeight="40px" FontSize="12pt" Margin="5px"  Foreground="White" Name="AddEmployeePassword"/>
+
+        <Button Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4" Content="{DynamicResource b_add_product}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name ="AddEmployeeInDB" Click="AddEmployeeInDB_Click" />
+    </Grid>
+
+</UserControl>

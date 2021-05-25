@@ -11,7 +11,12 @@ namespace LogisticCompany.model
     public class ProductPosition : INotifyPropertyChanged
     {
         public int Id { get; set; }
-        public Product product { get; set; }
+        public Product _product;
+        public Product product
+        {
+            get { return _product; }
+            set { _product = value; OnPropertyChanged("_product"); }
+        }
         public Center productCenter { get; set; }
         public int NumberOfProduct;
 

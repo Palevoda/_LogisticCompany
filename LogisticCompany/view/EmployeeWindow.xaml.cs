@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LogisticCompany.model;
+using LogisticCompany.ViewModel;
 
 namespace LogisticCompany.view
 {
@@ -44,6 +45,7 @@ namespace LogisticCompany.view
             this.employee = employee;            
             InitializeComponent();
             WindowUserName.Text = employee.Sorname;
+            WindowUserRole.Text = employee.role;
         }
 
         private void ShowAllProducts_Click(object sender, RoutedEventArgs e)
@@ -69,6 +71,12 @@ namespace LogisticCompany.view
         private void Parking_Click(object sender, RoutedEventArgs e)
         {
             WorkingArea.Content = TruckParkingViewer.GetInstance(employee);
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            command = new ExitCommand();
+            if (command.ifExecute()) command.Execute();
         }
     }
 }

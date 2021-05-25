@@ -4,10 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LogisticCompany"
-        mc:Ignorable="d"
-        Title="LogosticCompany" Height="500" Width="850" MinWidth="600px"
+        mc:Ignorable="d"  Background="#303030" 
+        Title="LogosticCompany" Height="600" Width="950" MinWidth="600px"
         Name ="WINDOW">
     <UserControl>
-    
+              
     </UserControl>
 </Window>

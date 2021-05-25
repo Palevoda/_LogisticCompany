@@ -8,10 +8,13 @@
     <v:String x:Key="b_witing_for_depature">К отправке</v:String>
     <v:String x:Key="b_parking">Стоянка</v:String>
     <v:String x:Key="b_trips">Рейсы</v:String>
+    <v:String x:Key="b_exit">Выход</v:String>
+
+    
     <!--Форма авторизации-->
     <v:String x:Key="t_Entry">Авторизация</v:String>
     <v:String x:Key="t_Sorname">Фамилия</v:String>
-    <v:String x:Key="t_Phone">Номер телефона</v:String>
+    <v:String x:Key="t_Phone">+375(XX)XXX-XX-XX</v:String>
     <v:String x:Key="t_password">Пароль</v:String>
     <v:String x:Key="b_entry">Войти</v:String>
     
@@ -69,5 +72,52 @@
     <v:String x:Key="trip_info_product_name">Товар</v:String>
     <v:String x:Key="trip_info_product_number">Количество</v:String>
     <v:String x:Key="trip_info_slot_cost">Стоимость($)</v:String>
+
+    
+    <!--Администратор-->
+    <!--Главное окно-->
+    <v:String x:Key="admin_main_products">Товары</v:String>
+    <v:String x:Key="admin_employees">Сотрудники</v:String>
+    <v:String x:Key="admin_main_requiers">Заказы</v:String>
+    <v:String x:Key="admin_main_trucks">Транспорт</v:String>
+    <v:String x:Key="admin_main_trips">Рейсы</v:String>
+    <!--Обзор товаров-->
+    <v:String x:Key="admin_products_articul">Артикул</v:String>
+    <v:String x:Key="admin_products_name">Наименование</v:String>
+    <v:String x:Key="admin_products_number">Количество</v:String>
+    <v:String x:Key="admin_products_center">Склад</v:String>
+    <!--Сотрудники-->
+    <v:String x:Key="admin_employees_watch">Просмотреть</v:String>
+    <v:String x:Key="admin_employees_add">Добавить</v:String>
+
+   
+    <v:String x:Key="admin_employees_employee_sorname">Фамилия</v:String>
+    <v:String x:Key="admin_employees_employee_name">Имя</v:String>
+    <v:String x:Key="admin_employees_employee_second">Отчество</v:String>
+    <v:String x:Key="admin_employees_employee_phone">Мобильный номер</v:String>
+    <v:String x:Key="admin_employees_employee_center">Центр</v:String>
+    <v:String x:Key="admin_employees_employee_role">Роль</v:String>
+    <v:String x:Key="admin_employees_employee_password">Пароль</v:String>
+    
+    <!--Транспорт-->
+    <v:String x:Key="admin_transport_reqistration">Номер</v:String>
+    <v:String x:Key="admin_transport_fuel">Расход топлива</v:String>
+    <v:String x:Key="admin_transport_slots">Кол-во слотов</v:String>
+    <v:String x:Key="admin_transport_load_cap">Грузоподъемность(кг)</v:String>
+    <v:String x:Key="admin_transport_volume_cap">Объем для перевозки</v:String>
+    <v:String x:Key="admin_transport_center">Центр</v:String>
+    <!--Заказы-->
+    <v:String x:Key="admin_requiers_make">Сформировать</v:String>
+    <v:String x:Key="admin_requiers_to">Куда</v:String>
+    <v:String x:Key="admin_requiers_from">Откуда</v:String>
+    <v:String x:Key="admin_requiers_product">Наименование</v:String>
+    <v:String x:Key="admin_requiers_number">Количество</v:String>
+    <!--Рейсы-->
+    <v:String x:Key="admin_requiers_view">Обзор</v:String>
+    <v:String x:Key="admin_requiers_generate">Сформировать</v:String>
+    <v:String x:Key="admin_requiers_cancellation">Отменить</v:String>
+    <v:String x:Key="admin_requiers_close">Завершить</v:String>
+    <v:String x:Key="admin_trips_transport">Транспорт</v:String>
+    <v:String x:Key="admin_trips_send">Отправить</v:String>
 
 </ResourceDictionary>

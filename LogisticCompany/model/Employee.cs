@@ -12,8 +12,8 @@ namespace LogisticCompany.model
         public string Sorname { get; set; }
         public string Name { get; set; }
         public string SecondName { get; set; }        
-        public string role { get; set; } // admin/employee
-        public string password { get; set; } //Доработать с солением
+        public string role { get; set; }
+        public string password { get; set; } 
         public string phoneNumber { get; set; }
         public Center center { get; set; }
         public Employee() { }
@@ -21,7 +21,7 @@ namespace LogisticCompany.model
         {
             Sorname = sorname;
             Name = name;
-            SecondName = name;
+            SecondName = second_name;
 
             if (role.Equals("Admin") || role.Equals("Employee") || role.Equals("Администратор") || role.Equals("Сотрудник"))
                 this.role = role;

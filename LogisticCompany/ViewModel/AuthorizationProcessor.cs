@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Windows;
 using LogisticCompany.model;
+using System.Text.RegularExpressions;
 
 namespace LogisticCompany.ViewModel
 {
@@ -32,14 +33,26 @@ namespace LogisticCompany.ViewModel
                 foreach (byte bit in hash)
                     password += bit;
 
+                
+                string expression = "+375([1-9]{2})[0-9]{3}-[0-9]{2}-[0-9]{2}";
+                if (!Regex.IsMatch(phone, "[+]375[(][1-9]{2}[)][0-9]{3}-[0-9]{2}-[0-9]{2}", RegexOptions.None))
+                    throw new Exception("Мобильный номер введен в неверной форме");
+
                 LogisticCompany.model.IRepController repository = new LogisticCompany.model.RepositoryController();
                 Employee employee = repository.GetEmployeeFromDB(sorname, phone);
                 if (employee != null)
                 {
                     if (employee.password.Equals(password))
                     {
-                        //MessageBox.Show("Пользователь идентифицирован");
-                        LogisticCompany.MainWindow.GetInstance().Content = LogisticCompany.view.EmployeeWindow.GetInstance(employee).Content;
+                        if (employee.role.Equals("Администратор") || employee.SecondName.Equals("Admin"))
+                        {
+                            LogisticCompany.MainWindow.GetInstance().Content = LogisticCompany.view.AdminWindow.GetInstance(employee).Content;
+
+                        }
+                        if (employee.role.Equals("Сотрудник") || employee.SecondName.Equals("Employee"))
+                        {
+                            LogisticCompany.MainWindow.GetInstance().Content = LogisticCompany.view.EmployeeWindow.GetInstance(employee).Content;
+                        }
                     }
                     else MessageBox.Show("Введены неверные данные\t");
                 }

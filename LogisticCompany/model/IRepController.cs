@@ -35,5 +35,15 @@ namespace LogisticCompany.model
         void UpdateTruck(Truck trck);
         void UpdateRequier(Require req);
         void UpdateTrip(Trip trp);
+        ObservableCollection<ProductPosition> GetAllProductsPosition();
+        ObservableCollection<Employee> GetDBEmployees();
+        void AddEmployeeInDB(Employee employee);
+        ObservableCollection<Truck> GetTrucks();
+        ObservableCollection<Require> GetDBRequiers();
+        ObservableCollection<Trip> GetTrips();
+        void DelateTripsSlots(int trip_id);
+        void DelateTrip(int trip_id);
+        void DeleteEmployee(int Id);
+        Employee FindEmployeeById(int Id);
     }
 }
