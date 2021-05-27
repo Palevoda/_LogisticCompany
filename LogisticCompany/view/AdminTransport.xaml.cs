@@ -27,6 +27,8 @@ namespace LogisticCompany.view
         {
             if (State == null)
                 State = new AdminTransport();
+
+            State.TransportWorkArea.Content = AdminTransportTable.GetInstance();
             return State;
         }
         public AdminTransport()

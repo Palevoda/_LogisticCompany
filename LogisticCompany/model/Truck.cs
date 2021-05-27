@@ -70,11 +70,11 @@ namespace LogisticCompany.model
         public void SetBusy()
         {
             if_busy = true;
-            controller.UpdateTruck(this);
+            ///controller.UpdateTruck(this);
         }
         public void SendInTrip()
         {
-            CurrentCenter = null;
+            CurrentCenter = controller.GetDBCenters().Where(c => c.Id == 17).FirstOrDefault();
             SetBusy();
             controller.UpdateTruck(this);
         }

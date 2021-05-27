@@ -433,8 +433,12 @@ namespace LogisticCompany.model
                 Truck truck = db_context.Trucks.Find(trck.Id);
                 truck.fuel_consumption = trck.fuel_consumption;
                 truck.if_busy = trck.if_busy;
-                Center center = db_context.Centers.Find(trck.CurrentCenter.Id);
-                truck.CurrentCenter = center;
+             // truck.CurrentCenter = trck.CurrentCenter;
+             // if (trck.CurrentCenter != null)
+             // {
+                    Center center = db_context.Centers.Find(trck.CurrentCenter.Id);
+                    truck.CurrentCenter = center;
+             //}
                 db_context.SaveChanges();
             }
             catch (Exception ex)
@@ -468,6 +472,7 @@ namespace LogisticCompany.model
             try
             { 
             Trip trip = db_context.Trips.Find(trp.Id);
+                if (!trip.Status.Equals(trp.Status))
             trip.Status = trp.Status;
             db_context.SaveChanges();
             }
@@ -570,10 +575,13 @@ namespace LogisticCompany.model
         public void DelateTripsSlots(int trip_id)
         {
             try
-            { 
-            foreach (TruckSlot slot in db_context.TruckSlots.Where(t => t.Trip.Id == trip_id))
+            {
+                int count_1 = db_context.TruckSlots.Count();
+                foreach (TruckSlot slot in db_context.TruckSlots.Where(t => t.Trip.Id == trip_id))
                 db_context.TruckSlots.Remove(slot);
-            db_context.SaveChanges();
+                int count_2 = db_context.TruckSlots.Count();
+                if (count_1!= count_2)
+                db_context.SaveChanges();
             }
             catch (Exception ex)
             {

@@ -29,24 +29,24 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <DataGridColumnHeader Grid.Column="2" Grid.ColumnSpan="4" Content="{DynamicResource trip_info_page_info}" HorizontalAlignment="Center"></DataGridColumnHeader>
+        <DataGridColumnHeader Grid.Column="2" Grid.ColumnSpan="4" Content="{DynamicResource trip_info_page_info}" HorizontalAlignment="Center" FontSize="15pt" Foreground="#303030"></DataGridColumnHeader>
         
-        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Margin="5px" Text="{DynamicResource trip_info_status}"></TextBlock>
-        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Margin="5px" Text="{DynamicResource trip_info_from}"></TextBlock>
-        <TextBlock Grid.Row="3" Grid.ColumnSpan="2" Margin="5px" Text="{DynamicResource trip_info_to}"></TextBlock>
-        <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Margin="5px" Text="{DynamicResource trip_info_slots}"></TextBlock>
-        <TextBlock Grid.Row="5" Grid.ColumnSpan="2" Margin="5px" Text="{DynamicResource trip_info_price}"></TextBlock>
-        <TextBlock Grid.Row="6" Grid.ColumnSpan="2" Margin="5px" Text="{DynamicResource trip_info_weight}"></TextBlock>
-        <TextBlock Grid.Row="7" Grid.ColumnSpan="2" Margin="5px" Text="{DynamicResource trip_info_actions}"></TextBlock>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Margin="5px" Foreground ="#303030" FontSize="12pt" HorizontalAlignment="Center"  Text="{DynamicResource trip_info_status}"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Margin="5px" Foreground ="#303030" FontSize="12pt" HorizontalAlignment="Center"  Text="{DynamicResource trip_info_from}"></TextBlock>
+        <TextBlock Grid.Row="3" Grid.ColumnSpan="2" Margin="5px" Foreground ="#303030" FontSize="12pt" HorizontalAlignment="Center"  Text="{DynamicResource trip_info_to}"></TextBlock>
+        <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Margin="5px" Foreground ="#303030" FontSize="12pt" HorizontalAlignment="Center"  Text="{DynamicResource trip_info_slots}"></TextBlock>
+        <TextBlock Grid.Row="5" Grid.ColumnSpan="2" Margin="5px" Foreground ="#303030" FontSize="12pt" HorizontalAlignment="Center"  Text="{DynamicResource trip_info_price}"></TextBlock>
+        <TextBlock Grid.Row="6" Grid.ColumnSpan="2" Margin="5px" Foreground ="#303030" FontSize="12pt" HorizontalAlignment="Center"  Text="{DynamicResource trip_info_weight}"></TextBlock>
+        <TextBlock Grid.Row="7" Grid.ColumnSpan="2" Margin="5px" Foreground ="#303030" FontSize="12pt" HorizontalAlignment="Center"  Text="{DynamicResource trip_info_actions}"></TextBlock>
 
 
-        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{Binding Path=trip.Status}"></TextBlock>
-        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{Binding Path=trip.From.CenterName}"></TextBlock>
-        <TextBlock Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{Binding Path=trip.To.CenterName}"></TextBlock>
-        <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{Binding Path=NumberOfSlots}"></TextBlock>
-        <TextBlock Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{Binding Path=cost}"></TextBlock>
-        <TextBlock Grid.Row="6" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{Binding Path= weight}"></TextBlock>
-        <ComboBox Grid.Row="7" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Text="{}" Name="TripActions">
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Foreground ="#303030" FontSize="12pt" HorizontalAlignment="Center" Text="{Binding Path=trip.Status}"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Foreground ="#303030" FontSize="12pt" HorizontalAlignment="Center" Text="{Binding Path=trip.From.CenterName}"></TextBlock>
+        <TextBlock Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Foreground ="#303030" FontSize="12pt" HorizontalAlignment="Center" Text="{Binding Path=trip.To.CenterName}"></TextBlock>
+        <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Foreground ="#303030" FontSize="12pt" HorizontalAlignment="Center" Text="{Binding Path=NumberOfSlots}"></TextBlock>
+        <TextBlock Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Foreground ="#303030" FontSize="12pt" HorizontalAlignment="Center" Text="{Binding Path=cost}"></TextBlock>
+        <TextBlock Grid.Row="6" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Foreground ="#303030" FontSize="12pt" HorizontalAlignment="Center" Text="{Binding Path= weight}"></TextBlock>
+        <ComboBox Grid.Row="7" Grid.ColumnSpan="2" Grid.Column="2" Margin="5px" Foreground ="#a9a9a9" FontSize="12pt" HorizontalAlignment="Center" Text="{}" Name="TripActions">
             
         </ComboBox>
 

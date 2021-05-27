@@ -148,6 +148,15 @@
     <Compile Include="view\Authorization.xaml.cs">
       <DependentUpon>Authorization.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\EmployeeGenerateTrip.xaml.cs">
+      <DependentUpon>EmployeeGenerateTrip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\EmployeeTripsTable.xaml.cs">
+      <DependentUpon>EmployeeTripsTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\EmployeeTripsWindow.xaml.cs">
+      <DependentUpon>EmployeeTripsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\EmployeeWindow.xaml.cs">
       <DependentUpon>EmployeeWindow.xaml</DependentUpon>
     </Compile>
@@ -253,6 +262,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\Authorization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\EmployeeGenerateTrip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\EmployeeTripsTable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\EmployeeTripsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -38,7 +38,7 @@ namespace LogisticCompany
                 Repository repository = new Repository();
                 DataBase context = repository.GetContext();
 
-                //Center center = new Center("MinskOne", "Минск", 95000f);
+                
                 //Center center1 = new Center("Vitba", "Витебск", 120000f);
                 //Center center2 = new Center("GrodnoGodno", "Гродно", 110000f);
                 //Center center3 = new Center("Beresta", "Брест", 110000f);

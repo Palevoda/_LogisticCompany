@@ -14,6 +14,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="{DynamicResource admin_products_articul}" Binding="{Binding Path=Id, Mode=TwoWay}" Width="*" IsReadOnly="True"/>
                     <DataGridTextColumn Header="{DynamicResource admin_products_name}"    Binding="{Binding Path=product.Name, Mode=TwoWay}" Width="*" IsReadOnly="false"/>
+                    <DataGridTextColumn Header="{DynamicResource add_prod_form_cost}"    Binding="{Binding Path=product.Cost, Mode=TwoWay}" Width="*" IsReadOnly="false"/>
                     <DataGridTextColumn Header="{DynamicResource admin_products_number}"  Binding="{Binding Path=numberOfProduct, Mode=TwoWay}" Width="*" IsReadOnly="false"/>
                     <DataGridTextColumn Header="{DynamicResource admin_products_center}"  Binding="{Binding Path=productCenter.CenterName, Mode=TwoWay}" Width="*" IsReadOnly="True"/>
                 </DataGrid.Columns>

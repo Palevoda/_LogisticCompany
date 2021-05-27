@@ -27,6 +27,9 @@ namespace LogisticCompany.view
         {
             if (State == null)
                 State = new EmployeeWindow(employee);
+
+            if (State.employee.Id != employee.Id)
+                State = new EmployeeWindow(employee); 
             return State;
         }
         public static EmployeeWindow GetInstance()
@@ -46,6 +49,7 @@ namespace LogisticCompany.view
             InitializeComponent();
             WindowUserName.Text = employee.Sorname;
             WindowUserRole.Text = employee.role;
+            WindowUserCity.Text = employee.center.CenterName;
         }
 
         private void ShowAllProducts_Click(object sender, RoutedEventArgs e)
@@ -65,7 +69,7 @@ namespace LogisticCompany.view
 
         private void ShowTrips_Click(object sender, RoutedEventArgs e)
         {
-            WorkingArea.Content = Trips.GetInstance(employee);
+            WorkingArea.Content = EmployeeTripsWindow.GetInstance(employee);
         }
 
         private void Parking_Click(object sender, RoutedEventArgs e)

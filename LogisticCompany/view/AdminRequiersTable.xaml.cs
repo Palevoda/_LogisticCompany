@@ -27,9 +27,9 @@ namespace LogisticCompany.view
         IRepController controller = new RepositoryController();
         public static AdminRequiersTable GetInstance()
         {
-            if (State == null)
+           // if (State == null)
                 State = new AdminRequiersTable();
-            State.SetContext();
+           // State.SetContext();
             return State;
         }
         

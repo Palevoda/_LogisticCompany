@@ -31,7 +31,8 @@ namespace LogisticCompany.view
         {
             if (State == null)
                 State = new Trips(empl);
-
+            if (State.employee.Id != empl.Id)
+                State = new Trips(empl);
             State.TripContentArea.Content = TripsTable.GetInstance(empl);
             return State;
         }

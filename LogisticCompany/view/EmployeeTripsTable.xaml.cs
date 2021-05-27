@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,34 +17,36 @@ using System.Windows.Shapes;
 
 namespace LogisticCompany.view
 {
-    public partial class AdminTripsTable : UserControl
+    /// <summary>
+    /// Логика взаимодействия для EmployeeTripsTable.xaml
+    /// </summary>
+    public partial class EmployeeTripsTable : UserControl
     {
-        static AdminTripsTable State;
+        static EmployeeTripsTable State;
         IRepController controller = new RepositoryController();
         ObservableCollection<TripDecorator> trips = new ObservableCollection<TripDecorator>();
+        Employee employee;
 
-        public static AdminTripsTable GetInstance()
+        public static EmployeeTripsTable GetInstance(Employee empl)
         {
-           // if (State == null)
-           State = new AdminTripsTable();
-            
-           // State.SetContext();
+            State = new EmployeeTripsTable(empl);
             return State;
         }
-        public AdminTripsTable()
+        public EmployeeTripsTable(Employee empl)
         {
+            employee = empl;
             InitializeComponent();
             TripTable.ItemsSource = trips;
             SetContext();
         }
 
         void SetContext()
-        {            
+        {
             if (trips.Count > 0) trips.Clear();
-            ObservableCollection<Trip> trps = controller.GetTrips();
+            ObservableCollection<Trip> trps = controller.GetTrips(employee.center);
             if (trps != null)
-            foreach (Trip tr in trps)
-            trips.Add(new TripDecorator(tr));    
+                foreach (Trip tr in trps)
+                    trips.Add(new TripDecorator(tr));
             TripTable.ItemsSource = trips;
         }
     }

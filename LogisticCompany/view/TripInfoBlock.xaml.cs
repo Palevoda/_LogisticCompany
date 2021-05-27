@@ -90,32 +90,53 @@ namespace LogisticCompany.view
                 }
                 if (Convert.ToString(TripActions.SelectedItem).Equals("SendTrips"))
                 {
-                    ObservableCollection<ProductPosition> productPositions = controller.GetDBCenterProductsPosition(employee.center);
-                    ProductPosition position;
-                    if (trip.trip.From.CenterName.Equals(employee.center.CenterName))
-                    {
-                        foreach (TruckSlot slot in trip.trip.Slots)
+                        try
                         {
-                            position = productPositions.Where(pp => pp.product.Id == slot.product.Id).FirstOrDefault();
-                            if (position != null)
+                            int trip_id = this.trip.trip.Id;
+                            Trip trip = controller.GetTrips().Where(t => t.Id == trip_id).FirstOrDefault();
+                            if (trip != null)
                             {
-                                //Если найдена позиция товара на складе, соот. товару в слоте, просто добавляется кол-во товара
-                               // position.NumberOfProduct -= slot.total_umber;
+                                //Сменить статус рейса
+                                trip.SendTrip();
+                                //Сменить статус фуры                    
+                                //controller.UpdateTrip(trip);
+                                trip.truck.SendInTrip();
+                                //TripsWorkingArea.Content = AdminTripsTable.GetInstance();
+
                             }
-                            else
-                            {
-                                //Если позиция не найдена, в базу данных добавляется новая, при просмотре товар буде скачан
-                                controller.AddProductPositionInDB(new ProductPosition(slot.product, employee.center, slot.total_umber));
-                            }
+                            else throw new Exception("Что-то пошло не так");
                         }
-                        //Меняем ставим фуру на парковку, меняем статус
-                        trip.trip.truck.CurrentCenter = null;
-                        trip.trip.truck.if_busy = true;
-                        employee.center.trucks_on_parking.Remove(trip.trip.truck);
-                        trip.trip.Status = "В пути";
-                        MessageBox.Show("Рейс успешно отправлен");
-                    }
-                    else throw new Exception("Вы не можете отправить рейс, который напрявляется к вам");
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+
+                    //ObservableCollection<ProductPosition> productPositions = controller.GetDBCenterProductsPosition(employee.center);
+                    //ProductPosition position;
+                    //if (trip.trip.From.CenterName.Equals(employee.center.CenterName))
+                    //{
+                    //    foreach (TruckSlot slot in trip.trip.Slots)
+                    //    {
+                    //        position = productPositions.Where(pp => pp.product.Id == slot.product.Id).FirstOrDefault();
+                    //        if (position != null)
+                    //        {
+                    //            //Если найдена позиция товара на складе, соот. товару в слоте, просто добавляется кол-во товара
+                    //           // position.NumberOfProduct -= slot.total_umber;
+                    //        }
+                    //        else
+                    //        {
+                    //            //Если позиция не найдена, в базу данных добавляется новая, при просмотре товар буде скачан
+                    //            controller.AddProductPositionInDB(new ProductPosition(slot.product, employee.center, slot.total_umber));
+                    //        }
+                    //    }
+                    //    //Меняем ставим фуру на парковку, меняем статус
+                    //    trip.trip.truck.CurrentCenter = null;
+                    //    trip.trip.truck.if_busy = true;
+                    //    employee.center.trucks_on_parking.Remove(trip.trip.truck);
+                    //    trip.trip.Status = "В пути";
+                    //    MessageBox.Show("Рейс успешно отправлен");
+                    //}
+                    //else throw new Exception("Вы не можете отправить рейс, который напрявляется к вам");
                 }
             }
             catch (Exception ex)
@@ -123,5 +144,7 @@ namespace LogisticCompany.view
                 MessageBox.Show(ex.Message);
             }
         }
+
+
     }
 }

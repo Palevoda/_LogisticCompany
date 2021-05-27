@@ -41,8 +41,9 @@ namespace LogisticCompany.view
         {
             if (State == null)
                 State = new TripsTable(empl);
-
-            State.AddTripsInCollection(empl);
+            if (State.employee.Id != empl.Id)
+                State = new TripsTable(empl);
+            //   State.AddTripsInCollection(empl);
             return State;
         }
         public TripsTable(Employee empl)
@@ -59,7 +60,10 @@ namespace LogisticCompany.view
         {
             trips.Clear();
             ObservableCollection<Trip> trps = new ObservableCollection<Trip>();
-            trps = controller.GetTrips(employee.center);
+            var trip_trip = controller.GetTrips(employee.center).Where(tt=>tt.Status != "Завершён");
+            foreach (Trip trip in trip_trip)
+                trps.Add(trip);
+            //trps = controller.GetTrips(employee.center);
             foreach (Trip tr in trps)
                 trips.Add(new TripDecorator(tr));
         }

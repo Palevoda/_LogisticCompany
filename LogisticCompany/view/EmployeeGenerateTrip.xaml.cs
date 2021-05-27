@@ -7,39 +7,48 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace LogisticCompany.view
 {
-    public partial class AdminGenerateTrip : UserControl
+    /// <summary>
+    /// Логика взаимодействия для EmployeeGenerateTrip.xaml
+    /// </summary>
+    public partial class EmployeeGenerateTrip : UserControl
     {
-        static AdminGenerateTrip State;
+        static EmployeeGenerateTrip State;
         ObservableCollection<Center> centers = new ObservableCollection<Center>();
         ObservableCollection<Truck> trucks = new ObservableCollection<Truck>();
         IRepController controller = new RepositoryController();
+        Employee employee;
 
-        public static AdminGenerateTrip GetInstance()
+        public static EmployeeGenerateTrip GetInstance(Employee empl)
         {
-            if (State == null)
-                State = new AdminGenerateTrip();
+            State = new EmployeeGenerateTrip(empl);
+
             return State;
         }
-        public AdminGenerateTrip()
+        public EmployeeGenerateTrip(Employee empl)
         {
             try
-            {
-                InitializeComponent();
-                SetControlsContent();
-                FromCenter.ItemsSource = centers;
-                FromCenter.DisplayMemberPath = "CenterName";
-                ToCenter.ItemsSource = centers;
-                ToCenter.DisplayMemberPath = "CenterName";
+            { 
+            employee = empl;
+            InitializeComponent();
+            SetControlsContent();
+            ToCenter.ItemsSource = centers;
+            ToCenter.DisplayMemberPath = "CenterName";
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
         void SetControlsContent()
         {
             try
@@ -49,18 +58,7 @@ namespace LogisticCompany.view
                 var cc = controller.GetDBCenters().Where(c => c.Id != 17);
                 foreach (Center center in cc)
                     centers.Add(center);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void FromCenter_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            try
-            {
-                trucks = controller.GetTrucks((Center)FromCenter.SelectedItem);
+                trucks = controller.GetTrucks(employee.center);
                 Transport.ItemsSource = trucks;
                 Transport.DisplayMemberPath = "Id";
             }
@@ -69,20 +67,18 @@ namespace LogisticCompany.view
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void GenerateTrip_Click(object sender, System.Windows.RoutedEventArgs e)
+       
+        private void GenerateTrip_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if ((Center)FromCenter.SelectedItem == null)
-                    throw new Exception("Выберите пункт отправки");
                 if ((Center)ToCenter.SelectedItem == null)
                     throw new Exception("Выберите пункт назначения");
                 if ((Truck)Transport.SelectedItem == null)
                     throw new Exception("Выберите транспорт");
 
                 Truck truck = (Truck)Transport.SelectedItem;
-                Center center_from = (Center)FromCenter.SelectedItem;
+                Center center_from = employee.center;
                 Center center_to = (Center)ToCenter.SelectedItem;
 
                 if (center_from.Id == center_to.Id)

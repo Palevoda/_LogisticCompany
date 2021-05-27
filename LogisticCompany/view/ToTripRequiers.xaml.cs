@@ -31,7 +31,8 @@ namespace LogisticCompany.view
         {
             if (State == null)
                 State = new ToTripRequiers(employee);
-
+            if (State.employee.Id != employee.Id)
+                State = new ToTripRequiers(employee);
             return State;
         }
         public ToTripRequiers(Employee employee)

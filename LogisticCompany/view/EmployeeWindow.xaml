@@ -35,7 +35,7 @@
             
             >
             <Button Content="{DynamicResource b_all_products}" Click="ShowAllProducts_Click" Name="ShowAllProducts"/>
-            <Button Content="{DynamicResource b_witing_for_depature}" Click="ShowRequiersToTrip_Click" Name ="ShowRequiersToTrip"/>
+            <!--<Button Content="{DynamicResource b_witing_for_depature}" Click="ShowRequiersToTrip_Click" Name ="ShowRequiersToTrip"/>-->
             <Button Content="{DynamicResource b_witing_for_arrival}" Name ="ShowOrdersToCenter" Click="ShowOrdersToCenter_Click" />
             <Button Content="{DynamicResource b_trips}" Name ="ShowTrips" Click="ShowTrips_Click"/>
             <Button Content="{DynamicResource b_parking}" Name ="Parking" Click="Parking_Click"/>
@@ -57,9 +57,10 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="4" x:Name="WindowUserRole" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Grid.Column="3" x:Name="WindowUserRole" FontWeight="Medium" HorizontalAlignment="Center" FontSize="13pt" Foreground="#a9a9a9" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Grid.Column="4" x:Name="WindowUserCity" FontWeight="Medium" HorizontalAlignment="Center" FontSize="13pt" Foreground="#a9a9a9" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Grid.Column="5" x:Name="WindowUserName" FontWeight="Medium" HorizontalAlignment="Center" FontSize="13pt" Foreground="#a9a9a9" VerticalAlignment="Center"></TextBlock>
 
-            <TextBlock Grid.Column="5" x:Name="WindowUserName" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         </Grid>
         <UserControl
             Grid.Row="1"

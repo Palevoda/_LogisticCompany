@@ -14,6 +14,9 @@ namespace LogisticCompany.view
         {
             if (State == null)
                 State = new ProductsObserver(empl);
+
+            if (State.employee.Id != empl.Id)
+                State = new ProductsObserver(empl);
             return State;
         }
         ProductsObserver(Employee employee)

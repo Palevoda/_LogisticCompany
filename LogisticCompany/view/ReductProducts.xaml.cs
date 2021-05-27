@@ -17,10 +17,15 @@ namespace LogisticCompany.view
         {
             if (State == null)
                 State = new ReductProducts(employee);
+
+            if (State.employee.Id != employee.Id)
+                State = new ReductProducts(employee);
+
             return State;
         }
         public static ReductProducts GetInstance()
         {
+
             return State;
         }
         public ReductProducts(Employee employee)

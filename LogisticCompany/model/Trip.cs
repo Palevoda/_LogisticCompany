@@ -64,6 +64,7 @@ namespace LogisticCompany.model
         public void SendTrip()
         {
             Status = "В пути";
+            truck.SendInTrip();
             controller.UpdateTrip(this);
         }
 

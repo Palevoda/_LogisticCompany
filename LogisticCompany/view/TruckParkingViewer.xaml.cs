@@ -12,9 +12,8 @@ namespace LogisticCompany.view
         Employee employee;
         public static TruckParkingViewer GetInstance(Employee empl)
         {
-            if (State == null)
-                State = new TruckParkingViewer(empl);
-            return State;
+           State = new TruckParkingViewer(empl);
+           return State;
         }
         public TruckParkingViewer(Employee empl)
         {

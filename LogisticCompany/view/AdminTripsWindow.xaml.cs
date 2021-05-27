@@ -40,7 +40,6 @@ namespace LogisticCompany.view
         private void GenerateTrip_Click(object sender, RoutedEventArgs e)
         {
             TripsWorkingArea.Content = AdminGenerateTrip.GetInstance();
-            TripsWorkingArea.Content = AdminTripsTable.GetInstance();
         }
 
         private void ViewTrips_Click(object sender, RoutedEventArgs e)
@@ -57,6 +56,7 @@ namespace LogisticCompany.view
                     int trip_id = Convert.ToInt32(NumberArea.Text);
                     //Получить слоты
                     Trip trip = controller.GetTrips().Where(t => t.Id == trip_id).FirstOrDefault();
+                    if (trip == null) throw new Exception("Не найден объект, с указанным Id. Проверьте правильность введенных данных"); 
                     ObservableCollection<TruckSlot> slots = controller.GetSlotsForTrip(trip);
                     //Прибывить к наименованию на складе кол-во  со слотов
                     Center centerTo = trip.To;
@@ -76,9 +76,12 @@ namespace LogisticCompany.view
                     foreach (TruckSlot slot in slots)
                     {
                         Require require = controller.GetDBRequiers().Where(r => r.FromCenter.Id == centerFrom.Id && r.ToCenter.Id == centerTo.Id && r.product.Id == slot.product.Id).FirstOrDefault();
-                        if (require.Number == slot.total_umber)
-                            controller.DelateRequier(require.Id);
-                        else require.Number -= slot.total_umber;
+                        if (require != null)
+                        {
+                            if (require.Number == slot.total_umber)
+                                controller.DelateRequier(require.Id);
+                            else require.Number -= slot.total_umber;
+                        }
                     }
                     //Удалить слоты
                     controller.DelateTripsSlots(trip_id);
@@ -99,13 +102,22 @@ namespace LogisticCompany.view
         private void CancelTrip_Click(object sender, RoutedEventArgs e)
         {
             if (NumberArea.Text != "")
-            {
+            {                
                 try
                 {
                     int trip_id = Convert.ToInt32(NumberArea.Text);
-                    controller.DelateTripsSlots(trip_id);
-                    controller.DelateTrip(trip_id);
-                    TripsWorkingArea.Content = AdminTripsTable.GetInstance();
+                    Trip trip = controller.GetTrips().Where(t => t.Id == trip_id).FirstOrDefault();
+                    if (trip != null)
+                    {
+                        if (trip.Status.Equals("Завершён")) throw new Exception("Нельзя отменить завершенный рейс");
+                        else
+                        {
+                            trip.truck.CurrentCenter = trip.From;
+                            controller.DelateTripsSlots(trip_id);
+                            controller.DelateTrip(trip_id);
+                            TripsWorkingArea.Content = AdminTripsTable.GetInstance();
+                        }
+                    }                   
                 }
                 catch (Exception ex)
                 {
@@ -124,12 +136,17 @@ namespace LogisticCompany.view
                 {
                     int trip_id = Convert.ToInt32(NumberArea.Text);
                     Trip trip = controller.GetTrips().Where(t => t.Id == trip_id).FirstOrDefault();
-                    //Сменить статус рейса
-                    trip.SendTrip();
-                    //Сменить статус фуры
-                    trip.truck.SendInTrip();
-                    controller.UpdateTrip(trip);
-                    TripsWorkingArea.Content = AdminTripsTable.GetInstance();
+                    if (trip.Status.Equals("Завершён")) throw new Exception("Нельзя отправить завершенный рейс");
+                    if (trip != null)
+                    {
+                        //Сменить статус рейса
+                        trip.SendTrip();
+                        //Сменить статус фуры                    
+                      //controller.UpdateTrip(trip);
+                      //  trip.truck.SendInTrip();
+                        TripsWorkingArea.Content = AdminTripsTable.GetInstance();
+                    }
+                    else throw new Exception("Проверьте правильность указанного Id");
                 }
                 catch (Exception ex)
                 {

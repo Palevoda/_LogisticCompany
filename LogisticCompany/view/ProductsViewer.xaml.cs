@@ -23,6 +23,8 @@ namespace LogisticCompany.view
         {
             if (State == null)
                 State = new ProductsViewer(empl);
+            if (State.employee.Id != empl.Id)
+                State = new ProductsViewer(empl);
 
             ProductsOnStorage.Clear();
             if (State.GetNewContext.ifExecute()) State.GetNewContext.Execute();

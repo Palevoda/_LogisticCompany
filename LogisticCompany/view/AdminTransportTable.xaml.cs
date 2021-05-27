@@ -24,9 +24,9 @@ namespace LogisticCompany.view
         IRepController controller = new RepositoryController();
         public static AdminTransportTable GetInstance()
         {
-            if (State == null)
+         //   if (State == null)
                 State = new AdminTransportTable();
-            State.SetContext();
+          //  State.SetContext();
             return State;
         }
         public AdminTransportTable()
