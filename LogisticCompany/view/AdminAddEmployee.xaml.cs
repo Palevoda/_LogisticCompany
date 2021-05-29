@@ -85,8 +85,6 @@ namespace LogisticCompany.view
                 if (password.Length < 6)
                     throw new Exception("Пароль не может быть менее 6 символов");
 
-
-
                 Employee empl = new Employee(sorname, name, second, role, password, phone, center);
                 controller.AddEmployeeInDB(empl);
                 MessageBox.Show("Добавлен новый сотрудник");

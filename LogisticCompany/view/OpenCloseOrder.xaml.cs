@@ -20,10 +20,10 @@ namespace LogisticCompany.view
 
         public static OpenCloseOrder GetInstance(Employee empl)
         {
-            if (State == null)
-                State = new  OpenCloseOrder(empl);
+            //if (State == null)
+            //    State = new  OpenCloseOrder(empl);
 
-            if (State.employee.Id != empl.Id)
+            //if (State.employee.Id != empl.Id)
                 State = new OpenCloseOrder(empl);
 
             return State;
@@ -51,10 +51,11 @@ namespace LogisticCompany.view
                 if (NumberArea.Text == "") throw new Exception("Укажите ID продукта, который хотите удалить");
                 Product prod = (Product)ProductsList.SelectedValue;
                 int number = Convert.ToInt32(NumberArea.Text);
+                if (number < prod.mominal_number) throw new Exception($"Минимальное количество для заказа данной продукции - {prod.mominal_number}");
                 command = new CreateARequier(prod, employee.center, number);
                 if (command.ifExecute()) command.Execute();
                 command = new GetRequiers(employee);
-                if (command.ifExecute()) command.Execute();
+                if (command.ifExecute()) command.Execute();              
             }
             catch (Exception ex)
             {

@@ -1,4 +1,5 @@
 ﻿using LogisticCompany.model;
+using LogisticCompany.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -59,6 +60,7 @@ namespace LogisticCompany.view
                     Trip trip = controller.GetTrips().Where(t => t.Id == trip_id).FirstOrDefault();
                     if (trip.From.Id != employee.center.Id) throw new Exception("Отправить рейс может только сотрудник центра отправки или администратор");
                     if (trip.Status.Equals("Завершён")) throw new Exception("Нельзя отправить завершенный рейс");
+                    if (trip.Status.Equals("В пути")) throw new Exception("Нельзя отправить отправленный рейс");
                     if (trip != null)
                     {
                         trip.SendTrip();
@@ -91,6 +93,7 @@ namespace LogisticCompany.view
                     if (trip != null)
                     {
                         if (trip.Status.Equals("Завершён")) throw new Exception("Нельзя отменить завершенный рейс");
+                        if (trip.Status.Equals("В пути")) throw new Exception("Нельзя отменить отправленный рейс");
                         else
                         {
                             trip.truck.CurrentCenter = trip.From;
@@ -120,6 +123,7 @@ namespace LogisticCompany.view
                     Trip trip = controller.GetTrips().Where(t => t.Id == trip_id).FirstOrDefault();
                     if (trip == null) throw new Exception("Не найден объект, с указанным Id. Проверьте правильность введенных данных");
                     if (trip.Status.Equals("Завершён")) throw new Exception("Нельзя завершить завершённый рейс");
+                    if (trip.Status.Equals("Ожидает отправки")) throw new Exception("Нельзя завершить рейс, ожидающий отправки");
                     if (trip.To.Id != employee.center.Id) throw new Exception("Завершить рейс может только сотрудник центра назначения или администратор");
                     
                     ObservableCollection<TruckSlot> slots = controller.GetSlotsForTrip(trip);
@@ -128,7 +132,24 @@ namespace LogisticCompany.view
                     foreach (TruckSlot slot in slots)
                     {
                         ProductPosition position = controller.GetDBCenterProductsPosition(centerTo).Where(p => p.product.Id == slot.product.Id).FirstOrDefault();
-                        position.numberOfProduct += slot.total_umber;
+                        if (position != null)
+                            position.numberOfProduct += slot.total_umber;
+                        else
+                        {
+                            ICommand command = new AddProductCommand(
+                                employee,
+                                Convert.ToString(slot.product.Name),
+                                Convert.ToString(slot.product.Length),
+                                Convert.ToString(slot.product.Height),
+                                Convert.ToString(slot.product.Height),
+                                Convert.ToString(slot.product.Weight),
+                                Convert.ToString(slot.product.Cost),
+                                slot.product.Unit_of_measurment,
+                                Convert.ToString(slot.product.Mominal_number),
+                                Convert.ToString(slot.total_umber)      
+                              );
+                            if (command.ifExecute()) command.Execute();
+                        }
                     }
                     //Отнять с отбывшего склада
                     Center centerFrom = trip.From;

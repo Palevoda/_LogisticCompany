@@ -56,6 +56,7 @@ namespace LogisticCompany.ViewModel
 
                 //Создать заказ и отправить в БД
                 requier = new Require(number, prod, CenterTo, CenterFrom);
+                OpenCloseOrder.GetInstance(EmployeeWindow.GetInstance().employe).Requiers.Add(requier);
                 
             }
             catch (Exception e)

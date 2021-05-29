@@ -18,9 +18,6 @@ using System.Windows.Shapes;
 
 namespace LogisticCompany.view
 {
-    /// <summary>
-    /// Логика взаимодействия для AdminTripsWindow.xaml
-    /// </summary>
     public partial class AdminTripsWindow : UserControl
     {
         static AdminTripsWindow State;
@@ -56,7 +53,9 @@ namespace LogisticCompany.view
                     int trip_id = Convert.ToInt32(NumberArea.Text);
                     //Получить слоты
                     Trip trip = controller.GetTrips().Where(t => t.Id == trip_id).FirstOrDefault();
-                    if (trip == null) throw new Exception("Не найден объект, с указанным Id. Проверьте правильность введенных данных"); 
+                    if (trip == null) throw new Exception("Не найден объект, с указанным Id. Проверьте правильность введенных данных");
+                    if (trip.Status.Equals("Завершён")) throw new Exception("Нельзя завершить завершённый рейс");
+                    if (trip.Status.Equals("Ожидает отправки")) throw new Exception("Нельзя завершить рейс, ожидающий отправки");
                     ObservableCollection<TruckSlot> slots = controller.GetSlotsForTrip(trip);
                     //Прибывить к наименованию на складе кол-во  со слотов
                     Center centerTo = trip.To;
@@ -107,6 +106,7 @@ namespace LogisticCompany.view
                 {
                     int trip_id = Convert.ToInt32(NumberArea.Text);
                     Trip trip = controller.GetTrips().Where(t => t.Id == trip_id).FirstOrDefault();
+                    if (trip.Status.Equals("Завершён")) throw new Exception("Нельзя отменить завершенный рейс");
                     if (trip != null)
                     {
                         if (trip.Status.Equals("Завершён")) throw new Exception("Нельзя отменить завершенный рейс");
@@ -136,7 +136,8 @@ namespace LogisticCompany.view
                 {
                     int trip_id = Convert.ToInt32(NumberArea.Text);
                     Trip trip = controller.GetTrips().Where(t => t.Id == trip_id).FirstOrDefault();
-                    if (trip.Status.Equals("Завершён")) throw new Exception("Нельзя отправить завершенный рейс");
+                    if (trip.Status.Equals("Завершён")) throw new Exception("Нельзя отправить завершенный рейс"); 
+                    if (trip.Status.Equals("В пути")) throw new Exception("Нельзя отправить отправленный рейс");
                     if (trip != null)
                     {
                         //Сменить статус рейса

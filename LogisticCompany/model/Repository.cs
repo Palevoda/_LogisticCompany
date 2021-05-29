@@ -416,9 +416,13 @@ namespace LogisticCompany.model
         {
             try
             {
-                Truck tr = db_context.Trucks.Find(truck.Id);
-                db_context.Trucks.Remove(tr);
-                db_context.SaveChanges();
+                if (truck != null)
+                {
+                    Truck tr = db_context.Trucks.Find(truck.Id);
+                    db_context.Trucks.Remove(tr);
+                    db_context.SaveChanges();
+                }
+                else throw new Exception("Введены неверные данные");
             }
             catch (Exception ex)
             {

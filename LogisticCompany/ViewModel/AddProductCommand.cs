@@ -51,7 +51,7 @@ namespace LogisticCompany.ViewModel
                     (float)Convert.ToDouble(Weight),
                     Convert.ToInt32(Min_num),
                     Unit
-                    ); ;
+                    ); 
                 ProductPosition productPosition = new ProductPosition(product, employee.center, Convert.ToInt32(Number));
                 controller.AddProductPositionInDB(productPosition);
                 MessageBox.Show("Товар добавлен");
